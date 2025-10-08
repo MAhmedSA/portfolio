@@ -1,0 +1,381 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mohamed Ahmed | Game Developer Portfolio</title>
+
+    <!-- ===== FONTS & ICONS ===== -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- ===== CSS ===== -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 8%;
+            background: rgba(15, 23, 42, 0.85);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+            header h1 {
+                font-size: 1.6rem;
+                font-weight: 700;
+                color: #38bdf8;
+            }
+
+        nav a {
+            margin-left: 2rem;
+            color: #e2e8f0;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+            nav a:hover {
+                color: #38bdf8;
+            }
+
+        .section {
+            padding: 100px 10%;
+            position: relative;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            color: #38bdf8;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: radial-gradient(circle at top left, #1e3a8a, #0f172a);
+            overflow: hidden;
+        }
+
+            .hero h1 {
+                font-size: 3rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+            }
+
+            .hero p {
+                max-width: 600px;
+                font-size: 1.1rem;
+                color: #cbd5e1;
+                margin-bottom: 2rem;
+            }
+
+        .btn {
+            padding: 0.8rem 2rem;
+            background: #38bdf8;
+            color: #0f172a;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+            .btn:hover {
+                background: #0ea5e9;
+            }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #1e293b;
+            border-radius: 1rem;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+            .project-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+            }
+
+            .project-card img {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+                display: block;
+                transition: opacity 0.3s;
+            }
+
+            .project-card:hover img {
+                opacity: 0.8;
+            }
+
+            .project-card h3 {
+                margin: 1rem;
+                color: #38bdf8;
+            }
+
+            .project-card p {
+                margin: 0 1rem 1.5rem;
+                font-size: 0.95rem;
+                color: #cbd5e1;
+            }
+
+        /* ===== ABOUT ===== */
+        .about {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+
+            .about img {
+                width: 250px;
+                border-radius: 1rem;
+            }
+
+        .about-text {
+            flex: 1;
+        }
+
+            .about-text p {
+                font-size: 1rem;
+                color: #cbd5e1;
+                line-height: 1.6;
+            }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            text-align: center;
+        }
+
+            .contact p {
+                color: #cbd5e1;
+                margin-bottom: 1rem;
+            }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #0f172a;
+            border-top: 1px solid #1e293b;
+            color: #94a3b8;
+        }
+
+        /* ===== FLOATING SHAPES ===== */
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.2;
+            z-index: 0;
+            animation: float 10s ease-in-out infinite;
+        }
+
+            .shape:nth-child(1) {
+                width: 120px;
+                height: 120px;
+                background: #38bdf8;
+                top: 10%;
+                left: 15%;
+                animation-delay: 0s;
+            }
+
+            .shape:nth-child(2) {
+                width: 80px;
+                height: 80px;
+                background: #0ea5e9;
+                top: 70%;
+                left: 80%;
+                animation-delay: 2s;
+            }
+
+            .shape:nth-child(3) {
+                width: 100px;
+                height: 100px;
+                background: #22d3ee;
+                top: 50%;
+                left: 40%;
+                animation-delay: 4s;
+            }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* ===== SCROLL ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 1s ease;
+        }
+
+            .fade-in.show {
+                opacity: 1;
+                transform: translateY(0);
+            }
+    </style>
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <h1>Mohamed Ahmed</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section id="home" class="hero">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+
+        <h1>Game Developer</h1>
+        <p>
+            I’m a passionate Unity Developer with experience in Mobile, VR, and Multiplayer games.
+            Skilled with PlayFab, Firebase, and Netcode integration to build engaging player experiences.
+        </p>
+        <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section projects-section fade-in">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+
+            <!-- Endless Runner -->
+            <div class="project-card">
+                <a href="https://apps.apple.com/us/app/pizza-boy-escape/id6748838277?platform=iphone" target="_blank">
+                    <img src="assets/images/EndlessRunner.png" alt="Pizza Boy Escape">
+                </a>
+                <h3>Pizza Boy Escape</h3>
+                <p>Mobile endless runner game featuring dynamic obstacle generation, smooth controls, and a coin collectible system.</p>
+            </div>
+
+            <!-- Eithor Knight -->
+            <div class="project-card">
+                <a href="https://www.youtube.com/watch?v=cImGPg2gjO8" target="_blank">
+                    <img src="assets/images/EithorKnight.png" alt="Eithor Knight Game">
+                </a>
+                <h3>Eithor Knight Game</h3>
+                <p>First-person action game with stylized visuals, weapon charge mechanics, and immersive level design.</p>
+            </div>
+
+            <!-- VR Room -->
+            <div class="project-card">
+                <a href="https://www.youtube.com/shorts/bNpmRbpwork" target="_blank">
+                    <img src="assets/images/VrRoom.png" alt="VR Room">
+                </a>
+                <h3>VR Room</h3>
+                <p>Virtual reality experience simulating real environments with interactive objects and realistic lighting.</p>
+            </div>
+
+            <!-- Educational Game -->
+            <div class="project-card">
+                <a href="https://your-educational-game-link.com" target="_blank">
+                    <img src="assets/images/EducationalGame.jpg" alt="Educational Game">
+                </a>
+                <h3>Educational Game</h3>
+                <p>Interactive educational experience developed during my time at Ekson Company to make learning fun and engaging.</p>
+            </div>
+
+            <!-- Splite Trace -->
+            <div class="project-card">
+                <a href="https://www.youtube.com/watch?v=BSJechx5T0Q" target="_blank">
+                    <img src="assets/images/SplitTrace.png" alt="Split Trace Game">
+                </a>
+                <h3>Split Trace – Graduation Project</h3>
+                <p>Split Trace is a third-person action-detective PC game developed as the final project for the ITI Game Development Diploma. I contributed to the damage system, collectible system, UI manager, and helped integrate all gameplay systems into a polished MVP, including environment setup and final debugging.</p>
+                <p><strong>Built with:</strong> Unity • C# • Cinemachine • Gemini AI</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section fade-in">
+        <h2>About Me</h2>
+        <div class="about">
+            <img src="assets/images/profile.jpg" alt="Profile Image" />
+            <div class="about-text">
+                <p>
+                    I'm a Unity Game Developer who enjoys creating interactive and meaningful experiences.
+                    I’ve worked on mobile and VR projects, integrating PlayFab and Firebase for user data and multiplayer systems.
+                    Passionate about gameplay systems, UI management, and optimizing performance for smooth user experiences.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section fade-in contact">
+        <h2>Contact</h2>
+        <p>📧 Email: <strong>mohamed.asa.ahmed@gmail.com</strong></p>
+        <p>🌐 LinkedIn: <a href="https://www.linkedin.com/in/mohamed-ahmed-58271b1b0/" style="color:#38bdf8;">linkedin.com/in/mohamedahmed</a></p>
+        <p>💼 GitHub: <a href="https://github.com/MAhmedSA" style="color:#38bdf8;">github.com/mohamedahmed</a></p>
+        <p>🌐 YouTube: <a href="https://www.youtube.com/@MohamedAhmed-ro9wx" style="color:#38bdf8;">youtube.com/mohamedahmed</a></p>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2025 Mohamed Ahmed | Game Developer Portfolio</p>
+    </footer>
+
+    <!-- ===== SCROLL ANIMATION SCRIPT ===== -->
+    <script>
+        const fadeEls = document.querySelectorAll('.fade-in');
+        function checkFade() {
+            fadeEls.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) el.classList.add('show');
+            });
+        }
+        window.addEventListener('scroll', checkFade);
+        checkFade();
+    </script>
+
+</body>
+</html>
